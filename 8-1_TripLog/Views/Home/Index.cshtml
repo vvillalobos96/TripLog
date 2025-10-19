@@ -1,0 +1,71 @@
+﻿<!--Virginia Villalobos
+    COP4813.0M1
+    Index.cshtml
+    --This page contains the labels, values, & buttons to be displayed on the Index page.
+    --It returns the list of trips with their details included
+    --The Add Trip link takes to you the first input page with the action 'In1.'
+    --There is a commented out button that refreshes the program, removing all test entries
+-->
+
+@model List<Trip>
+@{
+    ViewData["Title"] = "Trip Log";
+}
+
+
+@if(TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+
+<a asp-controller="Trip" asp-action="In1" class="link">Add Trip</a>
+<table class="table table-hover">
+    <thead>
+        <!--Table headers-->
+        <tr>
+            <th>Destination</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Accomodations</th>
+            <th>Things To Do</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var location in Model)
+        {
+        <tr>
+            <td>@location.Destination</td>
+            <td>@location.StartDate.ToString("MM/dd/yyyy")</td>
+            <td>@location.EndDate.ToString("MM/dd/yyyy")</td>
+            <td>@location.Accomodation</td>
+
+            @if (location.ThingsToDo3 != null)
+            {
+                <td>@location.ThingsToDo1<br />@location.ThingsToDo2<br />@location.ThingsToDo3</td>
+            }
+            else if (location.ThingsToDo2 != null)
+            {
+                <td>@location.ThingsToDo1<br />@location.ThingsToDo2</td>
+            }
+            else if (location.ThingsToDo1 != null)
+            {
+                <td>@location.ThingsToDo1</td>
+            }
+            else
+            {
+                <td></td>
+            }
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+<!--Uncomment & click to remove all but seeded data from database-->
+<!--<form asp-action="Refresh" asp-controller="Home" method="post">
+    <button type="submit" class="btn btn-secondary">Admin Refresh</button>
+</form>-->

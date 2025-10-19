@@ -1,0 +1,40 @@
+﻿<!--Virginia Villalobos
+    COP4813.0M1
+    In3.cshtml
+    --This page contains the labels, values, & buttons to be displayed on the third input page
+        --Things to do (Text)
+        --Things to do (Text)
+        --Things to do (Text)
+    --The subheading will display the destination entered in the first input page
+    --The Next button saves the data to the database & returns the user to the index page with the action 'In3.'
+    --The cancel button will clear out all temp data & return the user to the index page
+-->
+
+
+@model Trip
+@{
+    ViewData["Title"] = "Add Things to Do";
+    var dest = ViewBag.Destination as string;
+}
+
+<h2>Add Things To Do in @dest</h2>
+
+<form asp-action="In3" asp-controller="Trip" method="post">
+    <!--Display validation error text-->
+    <div asp-validation-summary="All"
+         class="text-danger">
+    </div>
+    <div class="form-group">
+        <input asp-for="ThingsToDo1" class="form-control">
+    </div>
+    <div class="form-group">
+        <input asp-for="ThingsToDo2" class="form-control">
+    </div>
+    <div class="form-group">
+        <input asp-for="ThingsToDo3" class="form-control">
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <button asp-action="Cancel" type="submit" class="btn btn-secondary">Cancel</button>
+
+</form>

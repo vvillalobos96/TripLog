@@ -1,0 +1,41 @@
+﻿<!--Virginia Villalobos
+    COP4813.0M1
+    _Layout.cshtml
+
+    --This page holds the layout shared by all pages (header, footer, etc)
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TripLog</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <script src="~/lib/popper.js/umd/popper.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+
+
+    <link rel="stylesheet" href="~/css/custom.css" />
+</head>
+<body>
+    <header class="p-3 mb-1 container">
+        <h1>My Trip Log</h1>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <!--This is where the content will live-->
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

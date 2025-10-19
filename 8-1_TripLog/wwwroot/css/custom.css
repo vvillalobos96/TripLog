@@ -1,0 +1,31 @@
+﻿/*Virginia Villalobos
+ * COP4813.0M1
+ * 
+ * *custom.css
+ * *Cover the specific styles not handled by bootstrap
+ * */
+
+body {
+}
+
+header {
+    background-color: RGB(53,58,65);
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+.link {
+    color: RGB(100,161,245);
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+input {
+    margin-bottom: 15px;
+}
+
+.btn {
+    background-color: RGB(53,58,65) !important;
+    color: white;
+}

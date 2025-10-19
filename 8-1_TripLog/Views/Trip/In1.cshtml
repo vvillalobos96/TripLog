@@ -1,0 +1,46 @@
+﻿<!--Virginia Villalobos
+    COP4813.0M1
+    In1.cshtml
+    --This page contains the labels, values, & buttons to be displayed on the first input page
+        --Destination (Text)- Required
+        --Start Date (Date)- Required; defaulted to sysdate
+        --End Date (Date)- Required; defaulted to sysdate
+        --Accommodation (Text)
+    --If there is a value in the Accommodation field, the Next button takes to you the second input page with the action 'In1.'
+        --Otherwise, it will take to you the third input page.
+    --The cancel button will clear out all temp data & return the user to the index page
+-->
+
+@model Trip
+@{
+    ViewData["Title"] = "Add Trip Destination & Dates";
+}
+
+<h2>Add Trip Destination &amp; Dates</h2>
+
+<form asp-action="In1" asp-controller="Trip" method="post">
+    <!--Display validation error text-->
+    <div asp-validation-summary="All"
+         class="text-danger">
+    </div>
+    <div class="form-group">
+        <label class="form-label" asp-for="Destination">Destination</label>
+        <input asp-for="Destination" class="form-control">
+    </div>
+    <div class="form-group">
+        <label class="form-label" asp-for="StartDate">Start Date</label>
+        <input type="date" asp-for="StartDate" class="form-control">
+    </div>
+    <div class="form-group">
+        <label class="form-label" asp-for="EndDate">End Date</label>
+        <input type="date" asp-for="EndDate" class="form-control">
+    </div>
+    <div class="form-group">
+        <label class="form-label" asp-for="Accomodation">Accommodation</label>
+        <input asp-for="Accomodation" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Next</button>
+    <button asp-action="Cancel" type="submit" class="btn btn-secondary">Cancel</button>
+
+</form>

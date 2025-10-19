@@ -1,0 +1,38 @@
+﻿<!--Virginia Villalobos
+    COP4813.0M1
+    In2.cshtml
+    --This page contains the labels, values, & buttons to be displayed on the second input page
+        --Accommodation Phone (Text)
+        --Accommodation Email (Text)
+    --The subheading will display the accommodation entered in the previous input page
+    --The Next button takes to you the third input page with the action 'In2.'
+    --The cancel button will clear out all temp data & return the user to the index page
+-->
+
+
+@model Trip
+@{
+    ViewData["Title"] = "Add Accommodation Details";
+    var accom = ViewBag.Accommodations as string;
+}
+
+<h2>Add Info for @accom</h2>
+
+<form asp-action="In2" asp-controller="Trip" method="post">
+    <!--Display validation error text-->
+<div asp-validation-summary="All"
+     class="text-danger">
+</div>
+<div class="form-group">
+    <label class="form-label" asp-for="AccomodationPhone">Phone Number</label>
+    <input asp-for="AccomodationPhone" class="form-control">
+</div>
+<div class="form-group">
+    <label class="form-label" asp-for="AccomodationEmail">Email Address</label>
+    <input asp-for="AccomodationEmail" class="form-control">
+</div>
+
+<button class="btn btn-primary" type="submit">Next</button>
+<button asp-action="Cancel" type="submit" class="btn btn-secondary">Cancel</button>
+
+</form>
